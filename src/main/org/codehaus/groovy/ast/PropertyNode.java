@@ -33,6 +33,8 @@ public class PropertyNode extends AnnotatedNode implements Opcodes, Variable {
 
     private Statement getterBlock;
     private Statement setterBlock;
+    private MethodNode getterMethod;
+    private MethodNode setterMethod;
     private final int modifiers;
 
     public PropertyNode(

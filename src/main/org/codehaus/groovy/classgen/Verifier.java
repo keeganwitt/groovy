@@ -654,6 +654,7 @@ public class Verifier implements GroovyClassVisitor, Opcodes {
             }
             if (!node.isPrivate() && methodNeedsReplacement(getter)) {
                 getterBlock = createGetterBlock(node, field);
+                node.setGetterBlock(getterBlock);
             }
         }
         Statement setterBlock = node.getSetterBlock();
@@ -662,6 +663,7 @@ public class Verifier implements GroovyClassVisitor, Opcodes {
             MethodNode setter = classNode.getSetterMethod(setterName, false);
             if (!node.isPrivate() && !isFinal(accessorModifiers) && methodNeedsReplacement(setter)) {
                 setterBlock = createSetterBlock(node, field);
+                node.setSetterBlock(setterBlock);
             }
         }
 
